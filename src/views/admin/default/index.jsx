@@ -18,6 +18,24 @@ import tableDataComplex from "./variables/tableDataComplex.json";
 import {apiData} from '../../../variables/sampleData.js'
 
 const Dashboard = () => {
+  let mostTrustedReviews = [];
+  apiData.trusted.reviews.map((elem)=>{
+    mostTrustedReviews.push({
+      name: elem.review,
+      quantity: elem.showMore,
+      date: elem.rating
+    });
+  })
+
+  let leastTrustedReviews = [];
+  apiData.leastTrusted.reviews.map((elem)=>{
+    leastTrustedReviews.push({
+      name: elem.review,
+      quantity: elem.showMore,
+      date: elem.rating
+    });
+  })
+
   return (
     <div>
       {/* Card widget */}
@@ -74,7 +92,8 @@ const Dashboard = () => {
         <div>
           <CheckTable
             columnsData={columnsDataCheck}
-            tableData={tableDataCheck}
+            tableData={mostTrustedReviews}
+            title={apiData.trusted.title}
           />
         </div>
 
@@ -88,10 +107,15 @@ const Dashboard = () => {
 
         {/* Complex Table , Task & Calendar */}
 
-        <ComplexTable
+        {/* <ComplexTable
           columnsData={complexReview}
           tableData={tableDataComplex}
-        />
+        /> */}
+          <CheckTable
+            columnsData={columnsDataCheck}
+            tableData={leastTrustedReviews}
+            title={apiData.leastTrusted.title}
+          /> 
 
         {/* Task chart & Calendar */}
 

@@ -11,7 +11,7 @@ import {
 } from "react-table";
 
 const CheckTable = (props) => {
-  const { columnsData, tableData } = props;
+  const { columnsData, tableData, title } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
@@ -40,7 +40,7 @@ const CheckTable = (props) => {
     <Card extra={"w-full h-full sm:overflow-auto px-6"}>
       <header className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Check Table
+        {title}
         </div>
 
         <CardMenu />
@@ -60,7 +60,7 @@ const CheckTable = (props) => {
                 {headerGroup.headers.map((column, index) => (
                   <th
                     {...column.getHeaderProps(column.getSortByToggleProps())}
-                    className="border-b border-gray-200 pr-16 pb-[10px] text-start dark:!border-navy-700"
+                    className="border-b border-gray-200 pr-10 pb-[10px] text-start dark:!border-navy-700"
                     key={index}
                   >
                     <div className="text-xs font-bold tracking-wide text-gray-600 lg:text-xs">
@@ -78,33 +78,35 @@ const CheckTable = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "NAME") {
+                    if (cell.column.Header === "REVIEW") {
                       data = (
                         <div className="flex items-center gap-2">
-                          <Checkbox />
+                          {/* <Checkbox /> */}
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {cell.value[0]}
+                            {cell.value}
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "PROGRESS") {
+                    } 
+                    // else if (cell.column.Header === "PROGRESS") {
+                    //   data = (
+                    //     <div className="flex items-center">
+                    //       <p className="text-sm font-bold text-navy-700 dark:text-white">
+                    //         {cell.value}%
+                    //       </p>
+                    //     </div>
+                    //   );
+                    // } 
+                    else if (cell.column.Header === "MORE INFO") {
                       data = (
-                        <div className="flex items-center">
-                          <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {cell.value}%
-                          </p>
-                        </div>
-                      );
-                    } else if (cell.column.Header === "QUANTITY") {
-                      data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                        <a href={cell.value} className="text-sm font-bold text-blue-500 dark:text-white">
                           {" "}
-                          {cell.value}{" "}
-                        </p>
+                          show more{" "}
+                        </a>
                       );
-                    } else if (cell.column.Header === "EXPIRY DATE") {
+                    } else if (cell.column.Header === "RATING") {
                       data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                        <p className="ml-2 text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
                         </p>
                       );

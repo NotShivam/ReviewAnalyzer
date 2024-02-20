@@ -18,20 +18,28 @@ export const columnsDataDevelopment = [
 ];
 
 export const columnsDataCheck = [
+  // {
+  //   Header: "NAME",
+  //   accessor: "name",
+  // },
+  // {
+  //   Header: "QUANTITY",
+  //   accessor: "quantity",
+  // },
+  // {
+  //   Header: "EXPIRY DATE",
+  //   accessor: "date",
+  // },
   {
-    Header: "NAME",
+    Header: "REVIEW",
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
-  },
-  {
-    Header: "QUANTITY",
+    Header: "MORE INFO",
     accessor: "quantity",
   },
   {
-    Header: "EXPIRY DATE",
+    Header: "RATING",
     accessor: "date",
   },
 ];
