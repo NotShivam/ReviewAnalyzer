@@ -35,8 +35,8 @@ const Dashboard = () => {
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
-          title={"Today Sales"}
-          subtitle={"₹574.34"}
+          title={"Pricing"}
+          subtitle={apiData.amazon.price}
         />
         <Widget
           icon={<MdDashboard className="h-6 w-6" />}
@@ -50,8 +50,8 @@ const Dashboard = () => {
         />
         <Widget
           icon={<IoMdHome className="h-6 w-6" />}
-          title={"Gifting"}
-          subtitle={"₹243.3"}
+          title={"Fake Reviews"}
+          subtitle={apiData.fakeReviews}
         />
       </div>
 
