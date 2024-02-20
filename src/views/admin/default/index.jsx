@@ -59,7 +59,12 @@ const Dashboard = () => {
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <TotalSpent />
-        <WeeklyRevenue />
+        <DailyTraffic 
+        tot = {apiData.totRev}
+        title="Rating Distribution" 
+        col={Object.keys(apiData.amazon.rating)} 
+        values={Object.values(apiData.amazon.rating)}  />
+        {/* <WeeklyRevenue /> */}
       </div>
 
       {/* Tables & Charts */}
