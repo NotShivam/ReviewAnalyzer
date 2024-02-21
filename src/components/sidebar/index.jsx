@@ -3,7 +3,7 @@
 import { HiX } from "react-icons/hi";
 import Links from "./componentsrtl/Links";
 // import { ReactComponent as Logo } from "../../assets/img/logo.svg";
-import Logo from "../../assets/img/logo.svg";
+import Logo from "../../assets/img/logo.png";
 
 import SidebarCard from "components/sidebar/componentsrtl/SidebarCard";
 import routes from "routes.js";

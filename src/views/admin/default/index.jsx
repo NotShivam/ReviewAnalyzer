@@ -75,28 +75,28 @@ const Dashboard = () => {
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
-          title={"Adjusted Rating"}
+          title={"Adjusted Rating to"}
           subtitle={apiData.adjRat}
         />
         <Widget
           icon={<IoMdHome className="h-6 w-6" />}
-          title={"Fake Reviews"}
+          title={"Unnatural Reviews"}
           subtitle={apiData.fakeReviews}
         />
         <Widget
           icon={<MdDashboard className="h-6 w-6" />}
-          title={"Trend"}
+          title={"Rating Trend"}
           subtitle={apiData.trend.perc}
+        />
+        <Widget
+            icon={<IoMdHome className="h-6 w-6" />}
+            title={"Overlapping Review History"}
+            subtitle={apiData.overl.perc}
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
           title={"Deleted Reviews"}
           subtitle={apiData.deleted.num}
-        />
-        <Widget
-          icon={<IoMdHome className="h-6 w-6" />}
-          title={"Unverified Purchases"}
-          subtitle={apiData.unveriPurchase.num}
         />
       </div>
 
@@ -171,8 +171,8 @@ const Dashboard = () => {
         {/* Task chart & Calendar */}
 
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          {/* <TaskCard /> */}
-          <DailyTraffic />
+          <TaskCard phaseRep={apiData.phaseRep} />
+          {/* <DailyTraffic /> */}
           <div className="grid grid-cols-1 rounded-[20px]">
             <MiniCalendar />
           </div>

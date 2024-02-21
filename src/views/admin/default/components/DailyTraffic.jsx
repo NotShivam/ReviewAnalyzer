@@ -25,7 +25,7 @@ const DailyTraffic = (props) => {
       theme: "dark",
     },
     xaxis: {
-      categories: ["1⭐", "2⭐", "3⭐", "4⭐", "5⭐"],
+      categories: ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"],
       show: false,
       labels: {
         show: true,
@@ -117,7 +117,7 @@ const DailyTraffic = (props) => {
         <div className="mt-2 flex items-start">
           <div className="flex items-center text-sm text-green-500">
             <MdArrowDropUp className="h-5 w-5" />
-            <p className="font-bold"> +2.45% </p>
+            <p className="font-bold"> 3.87⭐ </p>
           </div>
         </div>
       </div>
