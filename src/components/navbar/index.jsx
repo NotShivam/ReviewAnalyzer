@@ -25,7 +25,7 @@ const Navbar = (props) => {
 
   const { value } = useContext(Context);
   const [dataApi, setApiData] = value;
-  const url = "http://localhost:8080/api"
+  const url = "https://reviewmeta.onrender.com/api"
 
   const fetchApi = async (query) => {
     axios.post(url,
@@ -71,7 +71,7 @@ const Navbar = (props) => {
             to="#"
             className="font-bold capitalize hover:text-navy-700 dark:hover:text-white"
           >
-            {brandText.substring(0, 40)} ...
+            {brandText.substring(0, 45)} . . .
           </Link>
         </p>
       </div>
