@@ -100,9 +100,31 @@ const Dashboard = () => {
         {/* Traffic chart & Pie Chart */}
 
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          <PieChartCard title="Fake" cat1 = "Fake" cat2 = "Authentic" sus= {100 - parseInt(Number(apiData.adjRev.replace(",", "")) / Number(apiData.totRev.replace(",", "")) * 100)}/>
+          {/* <PieChartCard title="Fake" cat1 = "Fake" cat2 = "Authentic" sus= {100 - parseInt(Number(apiData.adjRev.replace(",", "")) / Number(apiData.totRev.replace(",", "")) * 100)}/> */}
           {/* <PieChartCard title="Fake" sus= {parseInt(Number(apiData.adjRat) / Number(apiData.totRev) * 100)}/> */}
-          <PieChartCard title="Suspicious" cat1 = "Suspicious" cat2 = "Normal" sus= {Number(apiData.sus.perc.substring(1, 3))}/>
+          <PieChartCard 
+          title={apiData.unveriPurchase.title} 
+          ratings={apiData.unveriPurchase.ratings} 
+          cat1 = {Number(apiData.unveriPurchase.perc.replace(/[`~%<>]/gi, '')) + "%"} 
+          cat2 = {100 - (Number(apiData.unveriPurchase.perc.replace(/[`~%<>]/gi, ''))) + "%"}  
+          cat1_title = "Unverified"
+          cat2_title = "Verified"
+          sus= {Number(apiData.unveriPurchase.perc.replace(/[`~%<>]/gi, ''))}
+          rat1="From Unverified Purchasers:"
+          rat2="From Verified Purchasers:"
+          />
+          <PieChartCard 
+          title={apiData.sus.title} 
+          ratings={apiData.sus.ratings} 
+          cat1 = {Number(apiData.sus.perc.replace(/[`~%<>]/gi, '')) + "%"} 
+          cat2 = {100 - (Number(apiData.sus.perc.replace(/[`~%<>]/gi, ''))) + "%"}  
+          cat1_title = "Suspicious"
+          cat2_title = "Verified"
+          sus= {Number(apiData.sus.perc.replace(/[`~%<>]/gi, ''))}
+          rat1="From One-Hit Wonders:"
+          rat2="More Than One Review:"
+          />
+          {/* <PieChartCard title="Suspicious" cat1 = "Suspicious" cat2 = "Normal" sus= {Number(apiData.sus.perc.substring(1, 3))}/> */}
         </div>
 
         {/* Complex Table , Task & Calendar */}

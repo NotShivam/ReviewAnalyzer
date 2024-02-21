@@ -1,6 +1,7 @@
 import PieChart from "components/charts/PieChart";
 import { susPie, pieChartData, pieChartOptions } from "variables/charts";
 import Card from "components/card";
+import Progress from "components/progress";
 
 const PieChartCard = (props) => {
   return (
@@ -8,7 +9,7 @@ const PieChartCard = (props) => {
       <div className="flex flex-row justify-between px-3 pt-2">
         <div>
           <h4 className="text-lg font-bold text-navy-700 dark:text-white">
-            Coupon Spent
+            {props.title}
           </h4>
         </div>
 
@@ -22,13 +23,33 @@ const PieChartCard = (props) => {
       </div>
 
       <div className="mb-auto flex h-[220px] w-full items-center justify-center">
-        <PieChart options={susPie} series={[Number(props.sus),100 - Number(props.sus)]} />
+        <PieChart options={susPie} series={[Number(props.sus), 100 - Number(props.sus)]} />
       </div>
+      <div className="flex flex-row !justify-between px-5 py-3 ">
+        <div className="">{props.rat1} </div>
+        <div className="ml-2">
+          <div className="mb-2">
+            <span>Ratings: </span> <b className="pb-2">{props.ratings[0]}</b>
+          </div>
+          <Progress width="w-[108px]" value={parseFloat(props.ratings[0].slice(0, -2)) * 20} />
+        </div>
+      </div>
+      <div className="flex flex-row !justify-between px-5 py-3 ">
+        <div className="">{props.rat2} </div>
+        <div className="ml-2">
+          <div className="mb-2">
+            <span>Ratings: </span> <b className="pb-2">{props.ratings[1]}</b>
+          </div>
+          <Progress width="w-[108px]" value={parseFloat(props.ratings[1].slice(0, -2)) * 20} />
+        </div>
+      </div>
+
       <div className="flex flex-row !justify-between rounded-2xl px-6 py-3 shadow-2xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
             <div className="h-2 w-2 rounded-full bg-brand-500" />
-            <p className="ml-1 text-sm font-normal text-gray-600">{props.title}</p>
+            <p className="ml-1 text-sm font-normal text-gray-600">{props.cat1_title}</p>
           </div>
           <p className="mt-px text-xl font-bold text-navy-700  dark:text-white">
             {props.cat1}
@@ -40,13 +61,13 @@ const PieChartCard = (props) => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
             <div className="h-2 w-2 rounded-full bg-[#6AD2FF]" />
-            <p className="ml-1 text-sm font-normal text-gray-600">{props.cat2}</p>
+            <p className="ml-1 text-sm font-normal text-gray-600">{props.cat2_title}</p>
           </div>
           <p className="mt-px text-xl font-bold text-navy-700 dark:text-white">
             {props.cat2}
           </p>
         </div>
-        
+
       </div>
     </Card>
   );
