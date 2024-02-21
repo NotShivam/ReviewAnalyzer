@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import CardMenu from "components/card/CardMenu";
 import Checkbox from "components/checkbox";
 import Card from "components/card";
+import Progress from "components/progress";
 
 import {
   useGlobalFilter,
@@ -105,11 +106,12 @@ const CheckTable = (props) => {
                         </a>
                       );
                     } else if (cell.column.Header === "RATING") {
-                      data = (
-                        <p className="ml-2 text-sm font-bold text-navy-700 dark:text-white">
-                          {cell.value}
-                        </p>
-                      );
+                      // data = (
+                      //   <p className="ml-2 text-sm font-bold text-navy-700 dark:text-white">
+                      //     {cell.value}
+                      //   </p>
+                      // );
+                      data = <Progress width="w-[108px]" value={parseInt(cell.value[0])*20} /> ;
                     }
                     return (
                       <td
