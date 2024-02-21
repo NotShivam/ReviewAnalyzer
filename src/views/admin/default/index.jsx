@@ -18,6 +18,15 @@ import tableDataComplex from "./variables/tableDataComplex.json";
 import {apiData} from '../../../variables/sampleData.js'
 
 const Dashboard = () => {
+  const rngi = (i, j) => {
+    return Math.floor(Math.random() * i) + j;
+  }
+  const wordCountCol = ["0 - 5", "6 - 15", "16 - 25", "26 - 40", "41 - 65", "66 - 100", "100+"];
+  const getWordCount = () => {
+    let wordCount = []
+
+
+  }
   let mostTrustedReviews = [];
   apiData.trusted.reviews.map((elem)=>{
     mostTrustedReviews.push({
@@ -87,7 +96,11 @@ const Dashboard = () => {
       {/* Charts */}
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <TotalSpent />
+        <TotalSpent 
+        col = {wordCountCol}
+        data = {getWordCount} 
+        overrepresented = {apiData.wordCount.perc}
+        />
         <DailyTraffic 
         tot = {apiData.totRev}
         title="Rating Distribution" 
