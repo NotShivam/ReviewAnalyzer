@@ -14,6 +14,7 @@ import avatar from "assets/img/krish.jpeg";
 import { apiData } from "variables/sampleData";
 import { useState, createContext, useContext } from "react";
 import { Context } from "layouts/admin";
+import axios from "axios";
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
@@ -21,27 +22,22 @@ const Navbar = (props) => {
   const [query, setQuery] = React.useState("");
   const apiLink = "";
 
-  
-  const {value} = useContext(Context);
-  const[dataApi, setApiData] = value;
-  const url = "https://reviewmeta.onrender.com/api"
+
+  const { value } = useContext(Context);
+  const [dataApi, setApiData] = value;
+  const url = "http://localhost:8080/api"
 
   const fetchApi = async (query) => {
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body:{
-          "amzUrl": query
-        }
-      });
-      console.log(response);
-      // return response;
-    } catch (error) {
-      console.log(error);
-    }
+    axios.post(url,
+      { query }
+    ).then((res) => {
+      // console.log(res);
+      // console.log(res.data);
+      setApiData(res.data)
+    });
   };
 
-  const handleSearch = () =>{
+  const handleSearch = () => {
     // setApiData();
     // console.log("clicked");
     fetchApi(query);
