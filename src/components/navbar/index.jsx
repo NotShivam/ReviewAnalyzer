@@ -44,7 +44,7 @@ const Navbar = (props) => {
             to="#"
             className="font-bold capitalize hover:text-navy-700 dark:hover:text-white"
           >
-            {brandText}
+            {brandText.substring(0, 40)} ...
           </Link>
         </p>
       </div>

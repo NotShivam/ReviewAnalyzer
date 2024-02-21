@@ -36,9 +36,20 @@ const Dashboard = () => {
     });
   })
 
+  // const ratingFucntion = (x) => {
+  //   console.log(x);
+  //   x["one"] = x["1 &#11088;"];
+  //   x["two"] = x["2 &#11088;"];
+  //   x["three"] = x["3 &#11088;"];
+  //   x["four"] = x["4 &#11088;"];
+  //   x["five"] = x["5 &#11088;"];
+  //   console.log(x);
+  // }
+
   return (
     <div>
       {/* Card widget */}
+      {/* {ratingFucntion(apiData.amazon.rating)} */}
 
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget

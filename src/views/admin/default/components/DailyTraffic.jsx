@@ -25,7 +25,7 @@ const DailyTraffic = (props) => {
       theme: "dark",
     },
     xaxis: {
-      categories: props.col,
+      categories: ["1⭐", "2⭐", "3⭐", "4⭐", "5⭐"],
       show: false,
       labels: {
         show: true,
