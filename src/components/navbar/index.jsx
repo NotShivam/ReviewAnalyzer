@@ -40,6 +40,8 @@ const Navbar = (props) => {
   const handleSearch = () => {
     // setApiData();
     // console.log("clicked");
+    // const x = fetchApi(query);
+    // setApiData(x);
     fetchApi(query);
   }
 
