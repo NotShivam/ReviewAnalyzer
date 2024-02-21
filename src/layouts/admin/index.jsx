@@ -4,13 +4,20 @@ import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
 import routes from "routes.js";
-import { apiData } from "variables/sampleData";
+// import { apiData } from "variables/sampleData";
+import { useState, createContext } from "react";
+import ReactDOM from "react-dom/client";
+
+// const UserContext = createContext()
+export const Context = createContext("Default Value");
 
 export default function Admin(props) {
   const { ...rest } = props;
   const location = useLocation();
-  const [open, setOpen] = React.useState(true);
-  const [currentRoute, setCurrentRoute] = React.useState("Main Dashboard");
+  const [open, setOpen] = useState(true);
+  const [currentRoute, setCurrentRoute] = useState("Main Dashboard");
+  
+  const [dataApi, setApiData] = useState("asdf");
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -59,39 +66,42 @@ export default function Admin(props) {
 
   document.documentElement.dir = "ltr";
   return (
-    <div className="flex h-full w-full">
-      <Sidebar open={open} onClose={() => setOpen(false)} />
-      {/* Navbar & Main Content */}
-      <div className="h-full w-full bg-lightPrimary dark:!bg-navy-900">
-        {/* Main Content */}
-        <main
-          className={`mx-[12px] h-full flex-none transition-all md:pr-2 xl:ml-[313px]`}
-        >
-          {/* Routes */}
-          <div className="h-full">
-            <Navbar
-              onOpenSidenav={() => setOpen(true)}
-              logoText={"Fraudfender"}
-              brandText={apiData.prodName}
-              secondary={""}
-              {...rest}
-            />
-            <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
-              <Routes>
-                {getRoutes(routes)}
+    <Context.Provider value={{value: [dataApi, setApiData]}}>
+      <div className="flex h-full w-full">
+        <Sidebar open={open} onClose={() => setOpen(false)} />
+        {/* Navbar & Main Content */}
+        <div className="h-full w-full bg-lightPrimary dark:!bg-navy-900">
+          {/* Main Content */}
+          <main
+            className={`mx-[12px] h-full flex-none transition-all md:pr-2 xl:ml-[313px]`}
+          >
+            {/* Routes */}
+            <div className="h-full">
+              <Navbar
+                onOpenSidenav={() => setOpen(true)}
+                logoText={"Fraudfender"}
+                // brandText={apiData.prodName}
+                brandText="temorary "
+                secondary={""}
+                {...rest}
+              />
+              <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
+                <Routes>
+                  {getRoutes(routes)}
 
-                <Route
-                  path="/"
-                  element={<Navigate to="/admin/default" replace />}
-                />
-              </Routes>
+                  <Route
+                    path="/"
+                    element={<Navigate to="/admin/default" replace />}
+                  />
+                </Routes>
+              </div>
+              <div className="p-3">
+                <Footer />
+              </div>
             </div>
-            <div className="p-3">
-              <Footer />
-            </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+     </Context.Provider>
   );
 }

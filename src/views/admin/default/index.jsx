@@ -16,8 +16,16 @@ import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/customData.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
 import {apiData} from '../../../variables/sampleData.js'
+import { useState, useEffect, useContext } from "react";
+import { Context } from "layouts/admin";
 
 const Dashboard = () => {
+  const {value} = useContext(Context);
+  const[dataApi, setApiData] = value;
+  
+  useEffect(() => {//for logging only
+    console.log(dataApi);
+  }, [dataApi]);
 
   let mostTrustedReviews = [];
   apiData.trusted.reviews.map((elem)=>{
@@ -36,16 +44,7 @@ const Dashboard = () => {
       date: elem.rating
     });
   })
-
-  // const ratingFucntion = (x) => {
-  //   console.log(x);
-  //   x["one"] = x["1 &#11088;"];
-  //   x["two"] = x["2 &#11088;"];
-  //   x["three"] = x["3 &#11088;"];
-  //   x["four"] = x["4 &#11088;"];
-  //   x["five"] = x["5 &#11088;"];
-  //   console.log(x);
-  // }
+  
 
   return (
     <div>
@@ -55,7 +54,8 @@ const Dashboard = () => {
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
-          title={"Total Reviews"}
+          // title={"Total Reviews"}
+          title={dataApi}
           subtitle={apiData.totRev}
         />
         <Widget
@@ -110,7 +110,8 @@ const Dashboard = () => {
         tot = {apiData.totRev}
         title="Rating Distribution" 
         col={Object.keys(apiData.amazon.rating)} 
-        values={Object.values(apiData.amazon.rating)}  />
+        values={Object.values(apiData.amazon.rating)}
+        avg={apiData.orgRat}  />
         {/* <WeeklyRevenue /> */}
       </div>
 

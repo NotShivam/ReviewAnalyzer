@@ -116,8 +116,8 @@ const DailyTraffic = (props) => {
         </div>
         <div className="mt-2 flex items-start">
           <div className="flex items-center text-sm text-green-500">
-            <MdArrowDropUp className="h-5 w-5" />
-            <p className="font-bold"> 3.87⭐ </p>
+            {/* <MdArrowDropUp className="h-5 w-5" /> */}
+            <p className="font-bold">Avg {props.avg} ⭐ </p>
           </div>
         </div>
       </div>

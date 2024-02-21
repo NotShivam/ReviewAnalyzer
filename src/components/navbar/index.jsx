@@ -12,11 +12,22 @@ import {
 } from "react-icons/io";
 import avatar from "assets/img/krish.jpeg";
 import { apiData } from "variables/sampleData";
+import { useState, createContext, useContext } from "react";
+import { Context } from "layouts/admin";
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
+  const [query, setQuery] = React.useState("");
   const apiLink = "";
+
+  
+  const {value} = useContext(Context);
+  const[dataApi, setApiData] = value;
+  const handleSearch = () =>{
+    setApiData(query);
+    console.log("clicked");
+  }
 
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
@@ -58,6 +69,8 @@ const Navbar = (props) => {
             type="text"
             placeholder="Search..."
             class="block h-full w-full rounded-full bg-lightPrimary text-sm font-medium text-navy-700 outline-none placeholder:!text-gray-400 dark:bg-navy-900 dark:text-white dark:placeholder:!text-white sm:w-fit"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         <span
@@ -70,7 +83,7 @@ const Navbar = (props) => {
         <Dropdown
           button={
             <p className="cursor-pointer">
-              <IoMdNotificationsOutline className="h-4 w-4 text-gray-600 dark:text-white" />
+              <FiSearch onClick={handleSearch} className="h-4 w-4 text-gray-800 dark:text-white" />
             </p>
           }
           animation="origin-[65%_0%] md:origin-top-right transition-all duration-300 ease-in-out"
