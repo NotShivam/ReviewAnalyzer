@@ -24,9 +24,27 @@ const Navbar = (props) => {
   
   const {value} = useContext(Context);
   const[dataApi, setApiData] = value;
+  const url = "https://reviewmeta.onrender.com/api"
+
+  const fetchApi = async (query) => {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body:{
+          "amzUrl": query
+        }
+      });
+      console.log(response);
+      // return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSearch = () =>{
-    setApiData({"query": query});
-    console.log("clicked");
+    // setApiData();
+    // console.log("clicked");
+    fetchApi(query);
   }
 
   return (

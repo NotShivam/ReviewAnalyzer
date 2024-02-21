@@ -27,23 +27,6 @@ const Dashboard = () => {
     console.log(dataApi);
   }, [dataApi]);
 
-  let mostTrustedReviews = [];
-  apiData.trusted.reviews.map((elem) => {
-    mostTrustedReviews.push({
-      name: elem.review,
-      quantity: elem.showMore,
-      date: elem.rating
-    });
-  })
-
-  let leastTrustedReviews = [];
-  apiData.leastTrusted.reviews.map((elem) => {
-    leastTrustedReviews.push({
-      name: elem.review,
-      quantity: elem.showMore,
-      date: elem.rating
-    });
-  })
   if (Object.keys(dataApi).length === 0) {
     return (
       <div className="">
@@ -88,7 +71,25 @@ const Dashboard = () => {
       </div>
     );
   }
-  else
+  else {
+    let mostTrustedReviews = [];
+    apiData.trusted.reviews.map((elem) => {
+      mostTrustedReviews.push({
+        name: elem.review,
+        quantity: elem.showMore,
+        date: elem.rating
+      });
+    })
+  
+    let leastTrustedReviews = [];
+    apiData.leastTrusted.reviews.map((elem) => {
+      leastTrustedReviews.push({
+        name: elem.review,
+        quantity: elem.showMore,
+        date: elem.rating
+      });
+    })
+
     return (
       <div>
         {/* Card widget */}
@@ -223,6 +224,7 @@ const Dashboard = () => {
         </div>
       </div>
     );
+  }
 };
 
 export default Dashboard;
