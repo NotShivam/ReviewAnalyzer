@@ -25,7 +25,6 @@ const TotalSpent = (props) => {
     wordCount.push(rngi(15, 13));
     wordCount.push(rngi(10, 7));
     wordCount.push(100 - wordCount.reduce((a, b) => a + b));
-    console.log(wordCount);
     return wordCount;
   }
   const x = {

@@ -18,15 +18,7 @@ import tableDataComplex from "./variables/tableDataComplex.json";
 import {apiData} from '../../../variables/sampleData.js'
 
 const Dashboard = () => {
-  const rngi = (i, j) => {
-    return Math.floor(Math.random() * i) + j;
-  }
-  const wordCountCol = ["0 - 5", "6 - 15", "16 - 25", "26 - 40", "41 - 65", "66 - 100", "100+"];
-  const getWordCount = () => {
-    let wordCount = []
 
-
-  }
   let mostTrustedReviews = [];
   apiData.trusted.reviews.map((elem)=>{
     mostTrustedReviews.push({
@@ -91,14 +83,27 @@ const Dashboard = () => {
           title={"Fake Reviews"}
           subtitle={apiData.fakeReviews}
         />
+        <Widget
+          icon={<MdDashboard className="h-6 w-6" />}
+          title={"Trend"}
+          subtitle={apiData.trend.perc}
+        />
+        <Widget
+          icon={<MdBarChart className="h-7 w-7" />}
+          title={"Deleted Reviews"}
+          subtitle={apiData.deleted.num}
+        />
+        <Widget
+          icon={<IoMdHome className="h-6 w-6" />}
+          title={"Unverified Purchases"}
+          subtitle={apiData.unveriPurchase.num}
+        />
       </div>
 
       {/* Charts */}
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <TotalSpent 
-        col = {wordCountCol}
-        data = {getWordCount} 
         overrepresented = {apiData.wordCount.perc}
         />
         <DailyTraffic 
