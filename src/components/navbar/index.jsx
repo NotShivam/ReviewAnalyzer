@@ -34,16 +34,18 @@ const Navbar = (props) => {
           "amzUrl": query
         }
       });
-      console.log(response);
+      console.log("haha", response);
       // return response;
     } catch (error) {
-      console.log(error);
+      console.log("hehe", error);
     }
   };
 
   const handleSearch = () =>{
     // setApiData();
     // console.log("clicked");
+    // const x = fetchApi(query);
+    // setApiData(x);
     fetchApi(query);
   }
 
