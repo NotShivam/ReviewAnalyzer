@@ -17,7 +17,7 @@ export default function Admin(props) {
   const [open, setOpen] = useState(true);
   const [currentRoute, setCurrentRoute] = useState("Main Dashboard");
   
-  const [dataApi, setApiData] = useState("asdf");
+  const [dataApi, setApiData] = useState({});
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -80,8 +80,8 @@ export default function Admin(props) {
               <Navbar
                 onOpenSidenav={() => setOpen(true)}
                 logoText={"Fraudfender"}
-                // brandText={apiData.prodName}
-                brandText="temorary "
+                brandText={(dataApi.prodName === undefined) ? "Welcome to FraudFender" : dataApi.prodName}
+                // brandText="temorary "
                 secondary={""}
                 {...rest}
               />

@@ -25,7 +25,7 @@ const Navbar = (props) => {
   const {value} = useContext(Context);
   const[dataApi, setApiData] = value;
   const handleSearch = () =>{
-    setApiData(query);
+    setApiData({"query": query});
     console.log("clicked");
   }
 
