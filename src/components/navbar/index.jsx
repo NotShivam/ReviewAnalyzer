@@ -2,39 +2,37 @@ import React from "react";
 import Dropdown from "components/dropdown";
 import { FiAlignJustify } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import navbarimage from "assets/img/layout/Navbar.png";
-import { BsArrowBarUp } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import {
-  IoMdNotificationsOutline,
   IoMdInformationCircleOutline,
 } from "react-icons/io";
-import avatar from "assets/img/krish.jpeg";
 import { apiData } from "variables/sampleData";
-import { useState, createContext, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "layouts/admin";
 import axios from "axios";
+const apiUrl = "https://reviewmeta.onrender.com/api"
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
   const [query, setQuery] = React.useState("");
-  const apiLink = "";
 
-
-  const { value } = useContext(Context);
+  const { value, value2 } = useContext(Context);
   const [dataApi, setApiData] = value;
-  const url = "https://reviewmeta.onrender.com/api"
+  const [apiLoading, setApiLoading]= value2;
 
   const fetchApi = async (query) => {
-    axios.post(url,
+    setApiLoading(true);
+    axios.post(apiUrl,
       { query }
     ).then((res) => {
       // console.log(res);
       // console.log(res.data);
       setApiData(res.data)
-    });
+      setApiLoading(false)
+
+    })
   };
 
   const handleSearch = () => {

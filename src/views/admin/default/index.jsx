@@ -5,7 +5,6 @@ import PieChartCard from "views/admin/default/components/PieChartCard";
 import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
 import { MdBarChart, MdDashboard } from "react-icons/md";
-
 import { columnsDataCheck, columnsDataComplex, complexReview } from "./variables/columnsData";
 
 import Widget from "components/widget/Widget";
@@ -15,17 +14,36 @@ import DailyTraffic from "views/admin/default/components/DailyTraffic";
 import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/customData.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
+import { Bars } from 'react-loader-spinner'
 import { dataApi } from '../../../variables/sampleData.js'
 import { useState, useEffect, useContext } from "react";
 import { Context } from "layouts/admin";
 
 const Dashboard = () => {
-  const { value } = useContext(Context);
-  const [dataApi, setdataApi] = value;
+  // const { value } = useContext(Context);
+  // const [dataApi, setdataApi] = value;
+
+  const { value, value2 } = useContext(Context);
+  const [dataApi, setApiData] = value;
+  const [apiLoading, setApiLoading] = value2;
 
   useEffect(() => {//for logging only
     console.log(dataApi);
   }, [dataApi]);
+
+  if (apiLoading) {
+    return (<div className="flex justify-center items-center mt-20 pt-20">
+      <Bars
+        height="100"
+        width="100"
+        color="#5f3aff"
+        ariaLabel="bars-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    </div>)
+  }
 
   if (Object.keys(dataApi).length === 0) {
     return (
@@ -80,7 +98,7 @@ const Dashboard = () => {
         date: elem.rating
       });
     })
-  
+
     let leastTrustedReviews = [];
     dataApi.leastTrusted.reviews.map((elem) => {
       leastTrustedReviews.push({

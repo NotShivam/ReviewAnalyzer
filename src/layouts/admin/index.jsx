@@ -18,6 +18,7 @@ export default function Admin(props) {
   const [currentRoute, setCurrentRoute] = useState("Main Dashboard");
   
   const [dataApi, setApiData] = useState({});
+  const [apiLoading, setApiLoading] = useState(false);
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -66,7 +67,7 @@ export default function Admin(props) {
 
   document.documentElement.dir = "ltr";
   return (
-    <Context.Provider value={{value: [dataApi, setApiData]}}>
+    <Context.Provider value={{value: [dataApi, setApiData], value2:[apiLoading, setApiLoading]}}>
       <div className="flex h-full w-full">
         <Sidebar open={open} onClose={() => setOpen(false)} />
         {/* Navbar & Main Content */}
