@@ -154,7 +154,7 @@ const Navbar = (props) => {
             <div className="flex w-[350px] flex-col gap-2 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
               <div
                 style={{
-                  backgroundImage: `url(${apiData.img})`,
+                  backgroundImage: `url(${dataApi && Object.keys(dataApi).length !== 0 ? dataApi.img : "https://www.svgrepo.com/show/332205/amazon-square.svg"})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                 }}
@@ -162,10 +162,10 @@ const Navbar = (props) => {
               />
               <a
                 target="blank"
-                href={apiData.amazon.url}
+                href={dataApi && Object.keys(dataApi).length !== 0 ? dataApi.amazon.url : "https://www.svgrepo.com/show/332205/amazon-square.svg"}
                 className="px-full linear flex cursor-pointer items-center justify-center rounded-xl bg-brand-500 py-[11px] font-bold text-white transition duration-200 hover:bg-brand-600 hover:text-white active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:bg-brand-200"
               >
-                Buy {apiData.prodName.substring(0, 15)} ...
+                Buy {dataApi && Object.keys(dataApi).length !== 0 ? dataApi.prodName.substring(0, 25) : "Enter an URL"} ...
               </a>
               <a
                 target="blank"
@@ -209,7 +209,8 @@ const Navbar = (props) => {
           button={
             <img
               className="h-10 w-10 rounded-full"
-              src={apiData.img}
+              // src={"https://www.svgrepo.com/show/332205/amazon-square.svg"}
+              src={dataApi && Object.keys(dataApi).length !== 0 ? dataApi.img : "https://www.svgrepo.com/show/332205/amazon-square.svg"}
               alt="Elon Musk"
             />
           }
