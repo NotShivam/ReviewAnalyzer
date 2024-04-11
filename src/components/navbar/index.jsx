@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { Context } from "layouts/admin";
 import axios from "axios";
 const apiUrl = "https://reviewmeta.onrender.com/api"
+// const apiUrl = "http://localhost:8080/api"
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
@@ -28,7 +29,7 @@ const Navbar = (props) => {
       { query }
     ).then((res) => {
       // console.log(res);
-      // console.log(res.data);
+      console.log(res.data);
       setApiData(res.data)
       setApiLoading(false)
 
@@ -152,7 +153,7 @@ const Navbar = (props) => {
           }
           children={
             <div className="flex w-[350px] flex-col gap-2 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
-              <div
+              {/* <div
                 style={{
                   backgroundImage: `url(${dataApi && Object.keys(dataApi).length !== 0 ? dataApi.img : "https://www.svgrepo.com/show/332205/amazon-square.svg"})`,
                   backgroundRepeat: "no-repeat",
@@ -173,13 +174,6 @@ const Navbar = (props) => {
                 className="px-full linear flex cursor-pointer items-center justify-center rounded-xl border py-[11px] font-bold text-navy-700 transition duration-200 hover:bg-gray-200 hover:text-navy-700 dark:!border-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:active:bg-white/10"
               >
                 See Image
-              </a>
-              {/* <a
-                target="blank"
-                href={apiData.img}
-                className="hover:bg-black px-full linear flex cursor-pointer items-center justify-center rounded-xl py-[11px] font-bold text-navy-700 transition duration-200 hover:text-navy-700 dark:text-white dark:hover:text-white"
-              >
-                Try Horizon Free
               </a> */}
             </div>
           }

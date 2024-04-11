@@ -48,6 +48,13 @@ const routes = [
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
+  {
+    name: "Recent News",
+    layout: "/admin",
+    path: "recomendation",
+    icon: <MdList className="h-6 w-6" />,
+    component: <List />,
+  },
   // {
   //   name: "NFT Marketplace",
   //   layout: "/admin",
@@ -104,13 +111,6 @@ const routes = [
     path: "newGiftcard",
     icon: <MdCardGiftcard className="h-6 w-6" />,
     component: <Giftcard />,
-  },
-  {
-    name: "Recommended Coupon",
-    layout: "/admin",
-    path: "recomendation",
-    icon: <MdList className="h-6 w-6" />,
-    component: <List />,
   },
   // {
   //   name: "Deploy Coupon",

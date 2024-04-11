@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ComplexTable from "views/admin/default/components/customerSpecificCouponTable";
-import ColumnsTable from "../tables/components/ColumnsTable";
-import tableDataColumns from "../../../views/admin/tables/variables/tableDataColumns.json"
-import {
-  columnsDataColumns,
-} from "../tables/variables/columnsData.js";
 
 import {
   Card,
