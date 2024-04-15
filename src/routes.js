@@ -19,6 +19,12 @@ import Newsletter from "views/admin/promotion/Newsletter";
 import CompanyDetails from "views/admin/promotion/CompanyDetails";
 import Documentation from "views/admin/promotion/Documentation";
 
+import OtherSMA from "views/admin/promotion/OtherSMA";
+import YoutubeSummary from "views/admin/promotion/YoutubeSummary";
+import { FiYoutube } from "react-icons/fi";
+import { FaRedditAlien } from "react-icons/fa";
+import { IoLogoReddit } from "react-icons/io";
+
 // Auth Imports
 import SignIn from "views/auth/SignIn";
 
@@ -40,6 +46,9 @@ import {
   MdOutlineFilePresent,
 } from "react-icons/md";
 
+import { TiSocialYoutube } from "react-icons/ti";
+import { IoNewspaperOutline } from "react-icons/io5";
+
 const routes = [
   {
     name: "Main Dashboard",
@@ -52,65 +61,36 @@ const routes = [
     name: "Recent News",
     layout: "/admin",
     path: "recomendation",
-    icon: <MdList className="h-6 w-6" />,
+    icon: <IoNewspaperOutline className="h-6 w-6" />,
     component: <List />,
   },
-  // {
-  //   name: "NFT Marketplace",
-  //   layout: "/admin",
-  //   path: "nft-marketplace",
-  //   icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-  //   component: <NFTMarketplace />,
-  //   secondary: true,
-  // },
-  // {
-    // name: "Data Tables",
-    // layout: "/admin",
-    // icon: <MdBarChart className="h-6 w-6" />,
-    // path: "data-tables",
-    // component: <DataTables />,
-  // },
-  // {
-  //   name: "Profile",
-  //   layout: "/admin",
-  //   path: "profile",
-  //   icon: <MdPerson className="h-6 w-6" />,
-  //   component: <Profile />,
-  // },
-  // {
-  //   name: "Sign In",
-  //   layout: "/auth",
-  //   path: "sign-in",
-  //   icon: <MdLock className="h-6 w-6" />,
-  //   component: <SignIn />,
-  // },
-  // {
-  //   name: "Register",
-  //   layout: "/admin",
-  //   path: "register",
-  //   icon: <MdPerson className="h-6 w-6" />,
-  //   component: <Register />,
-  // },
   {
-    name: "Static Coupon",
+    name: "YouTube Extraction",
     layout: "/admin",
-    path: "createStaticCoupon",
-    icon: <MdLoyalty className="h-6 w-6" />,
-    component: <Promo />,
+    path: "youtube-ngram",
+    icon: <TiSocialYoutube className="h-6 w-6" />,
+    component: <OtherSMA />,
   },
   {
-    name: "Dynamic Coupon",
+    name: "YouTube Retreval",
     layout: "/admin",
-    path: "dynamicCoupon",
-    icon: <MdStackedBarChart className="h-6 w-6" />,
-    component: <DynamicCoupon />,
+    path: "youtube-summary",
+    icon: <FiYoutube className="h-6 w-6" />,
+    component: <YoutubeSummary />,
   },
   {
-    name: "Create Giftcard",
+    name: "Reddit Extraction",
     layout: "/admin",
-    path: "newGiftcard",
-    icon: <MdCardGiftcard className="h-6 w-6" />,
-    component: <Giftcard />,
+    path: "reddit-ngram",
+    icon: <FaRedditAlien className="h-6 w-6" />,
+    component: <OtherSMA />,
+  },
+  {
+    name: "Reddit Retreval",
+    layout: "/admin",
+    path: "reddit-summary",
+    icon: <IoLogoReddit className="h-6 w-6" />,
+    component: <YoutubeSummary />,
   },
   // {
   //   name: "Deploy Coupon",

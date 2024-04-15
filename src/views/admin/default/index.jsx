@@ -48,11 +48,11 @@ const Dashboard = () => {
   if (Object.keys(dataApi).length === 0) {
     return (
       <div className="">
-        <div className="container mt-4 px-5">
+        <div className="container mt-4 md:px-5">
           <div className="p-4 text-center">
             <div className="m-4">
-              <h1 className="display-5 font-bold text-5xl">Analyze a URL</h1>
-              <p className="text-2xl mt-4">Analyze a product for its reviews, get helpful insights, overview and much more
+              <h1 className="display-5 font-bold text-2xl md:text-5xl">Analyze a URL</h1>
+              <p className="text-md md:text-2xl mt-4">Analyze a product for its reviews, get helpful insights, overview and much more
                 information. Insert a URL the Amazon link of product in the search bar below to start the
                 analysis.
               </p>
@@ -64,20 +64,21 @@ const Dashboard = () => {
 
         <section className="">
           <div className="px-4 my-5">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="col-span-2"><img className="mb-5"
                 src="https://cdn.shulex-tech.com/blog-media/uploads/2023/02/Amazon-Review-Analysis.png"
                 alt="..." />
               </div>
-              <div className="col-span-1 ml-5 ml-5 my-5">
+              
+              <div className="col-span-2 md:col-span-1 ml-5 ml-5 my-5">
                 <div className="small mb-1">Analysis on your finger tip</div>
-                <h1 className="display-5 text-3xl font-bold mb-3">Your Trusted Guide for Shopping</h1>
+                <h1 className="display-5 text-xl md:text-3xl font-bold mb-3">Your Trusted Guide for Shopping</h1>
 
-                <p className="font-light text-xl">FraudFender works by using artificial intelligence to analyze reviews, product info, seller info, and other aggregate data to identify and report on fake and unreliable eCommerce activity.
+                <p className="font-light text-lg md:text-xl">FraudFender works by using artificial intelligence to analyze reviews, product info, seller info, and other aggregate data to identify and report on fake and unreliable eCommerce activity.
                   <br />
                   The results of our analysis are provided to you as FraudFender Review Grades and Adjusted Ratings, Guard Seller Ratings, and Review Highlights.</p>
                 <div className="d-flex mt-4">
-                  <button className="btn outline p-3 focus:ring-2 rounded-md" type="button">
+                  <button className="btn border border-gray-800 shadow-md hover:shadow-lg p-3 rounded-md" type="button">
                     <i className="bi-cart-fill me-1 text-blue-600"></i>
                     Analyze now
                   </button>
