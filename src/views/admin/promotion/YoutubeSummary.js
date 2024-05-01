@@ -45,8 +45,8 @@ const YoutubeSummary = (props) => {
 
   const handleSearch = () => {
     if (dataApi) {
-      // fetchApi(JSON.stringify({ input_string: dataApi.prodName.split(' ').slice(0,3).join(' ') }));
-      fetchApi(JSON.stringify({ input_string: "samsung s21" }));
+      fetchApi(JSON.stringify({ input_string: dataApi.prodName.split(' ').slice(0,3).join(' ') }));
+      // fetchApi(JSON.stringify({ input_string: "samsung s21" }));
     }
   }
 
@@ -72,7 +72,7 @@ const YoutubeSummary = (props) => {
       {flaskApi ?
         <div className="grid gird-cols-1 mt-5 gap-4">
 
-          <blockquote className="text-xl italic font-semibold text-green-800 dark:text-white">
+          <blockquote className="p-6 bg-white text-xl italic font-semibold text-green-800 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
@@ -81,7 +81,7 @@ const YoutubeSummary = (props) => {
             ))}
           </blockquote>
 
-          <blockquote className="mt-4 text-xl italic font-semibold text-amber-600 dark:text-white">
+          <blockquote className="mt-4 p-6 bg-white text-xl italic font-semibold text-amber-600 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
@@ -90,7 +90,7 @@ const YoutubeSummary = (props) => {
             ))}
           </blockquote>
 
-          <blockquote className="mt-4 text-xl italic font-semibold text-red-600 dark:text-white">
+          <blockquote className="mt-4 p-6 bg-white text-xl italic font-semibold text-red-600 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
@@ -109,7 +109,6 @@ const YoutubeSummary = (props) => {
                 alt="..." />
               </div>
 
-<<<<<<< HEAD
               <div className="col-span-2 md:col-span-1 ml-5 ml-5 my-5">
                 <div className="small mb-1">Analysis on your finger tip</div>
                 <h1 className="display-5 text-xl md:text-3xl font-bold mb-3">Your Trusted Guide for Shopping</h1>
@@ -124,16 +123,6 @@ const YoutubeSummary = (props) => {
                   </button>
                 </div>
               </div>
-=======
-            <p className="font-light text-lg md:text-xl">ReviewRadar works by using artificial intelligence to analyze reviews, product info, seller info, and other aggregate data to identify and report on fake and unreliable eCommerce activity.
-              <br />
-              The results of our analysis are provided to you as ReviewRadar Review Grades and Adjusted Ratings, Guard Seller Ratings, and Review Highlights.</p>
-            <div className="d-flex mt-4">
-              <button className="btn border border-gray-800 shadow-md hover:shadow-lg p-3 rounded-md" type="button">
-                <i className="bi-cart-fill me-1 text-blue-600"></i>
-                Analyze now
-              </button>
->>>>>>> 8be85fd3dcc24487f6447ac23048f28cb46b6af6
             </div>
           </div>
 

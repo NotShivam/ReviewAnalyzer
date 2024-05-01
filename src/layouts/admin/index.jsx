@@ -23,6 +23,8 @@ export default function Admin(props) {
   const [flaskApiLoading, setFlaskApiLoading] = useState(false);
   const [flaskApiR, setFlaskApiR] = useState(null);
   const [flaskApiLoadingR, setFlaskApiLoadingR] = useState(false);
+  const [flaskApiGem, setFlaskApiGem] = useState(null);
+  const [flaskApiLoadingGem, setFlaskApiLoadingGem] = useState(false);
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -78,6 +80,8 @@ export default function Admin(props) {
       value3: [flaskApi, setFlaskApi],
       value5:[flaskApiLoadingR, setFlaskApiLoadingR], 
       value6: [flaskApiR, setFlaskApiR],
+      gemData:[flaskApiLoadingGem, setFlaskApiLoadingGem], 
+      gemLoad: [flaskApiGem, setFlaskApiGem],
       }}>
       
       <div className="flex h-full w-full">

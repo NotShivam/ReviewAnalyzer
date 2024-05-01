@@ -7,16 +7,8 @@ import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
 import RTLDefault from "views/rtl/default";
 
-import Promo from "views/admin/promotion/Promotion";
-import List from "views/admin/promotion/List";
-import DeployCoupon from "views/admin/promotion/DeployCoupon";
-import DynamicCoupon from "views/admin/promotion/DynamicCoupon";
-import CouponDetails from "views/admin/promotion/CouponDetails";
-import CustomerSpecific from "views/admin/promotion/customerSpecific";
-import Giftcard from "views/admin/promotion/Giftcard";
-import Register from "views/admin/promotion/Register";
+import List from "views/admin/promotion/News";
 import Newsletter from "views/admin/promotion/Newsletter";
-import CompanyDetails from "views/admin/promotion/CompanyDetails";
 import Documentation from "views/admin/promotion/Documentation";
 import Segrigation from "views/admin/promotion/Segrigation";
 
@@ -113,26 +105,12 @@ const routes = [
     icon: <FaMobileAlt className="h-6 w-6" />,
     component: <Segrigation />,
   },
-  {
-    name: "Newsletter",
-    layout: "/admin",
-    path: "newsletter",
-    icon: <MdMarkunreadMailbox className="h-6 w-6" />,
-    component: <Newsletter />,
-  },
-  {
-    name: "Company Data",
-    layout: "/admin",
-    path: "companyData",
-    icon: <MdSupervisedUserCircle className="h-6 w-6" />,
-    component: <CompanyDetails />,
-  },
-  {
-    name: "Documentation",
-    layout: "/admin",
-    path: "docs",
-    icon: <MdOutlineFilePresent className="h-6 w-6" />,
-    component: <Documentation />,
-  }
+  // {
+  //   name: "Documentation",
+  //   layout: "/admin",
+  //   path: "docs",
+  //   icon: <MdOutlineFilePresent className="h-6 w-6" />,
+  //   component: <Documentation />,
+  // }
 ];
 export default routes;

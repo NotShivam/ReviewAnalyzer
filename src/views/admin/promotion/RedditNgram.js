@@ -48,8 +48,8 @@ const RedditNgram = (props) => {
   const handleSearch = () => {
     if (dataApi) {
       // fetchApi(JSON.stringify({ input_string: dataApi.prodName.split(' ').slice(0,3).join(' ') }));
-      fetchApi(JSON.stringify({ input_string: "samsung s21" }));
     }
+    fetchApi(JSON.stringify({ input_string: "samsung s21" }));
   }
 
   if (flaskApiLoadingR) {
@@ -68,7 +68,7 @@ const RedditNgram = (props) => {
   else {
     return (<div className="">
       <div className="mt-5 flex justify-between">
-        <p className="text-xl mt-1" >Analyze a product for its youtube discussion.</p>
+        <p className="text-xl mt-1" >Analyze a product for its Reddit discussion.</p>
         <button onClick={handleSearch} className="py-2 px-3 font-bold rounded-md bg-white shadow-md hover:shadow-lg text-lg">Extract Comments</button>
       </div>
       {flaskApiR ?

@@ -70,7 +70,7 @@ const Navbar = (props) => {
             to="#"
             className="font-bold capitalize hover:text-navy-700 dark:hover:text-white"
           >
-            {brandText.substring(0, 45)} . . .
+            {brandText.substring(0, 55)} . . .
           </Link>
         </p>
       </div>
