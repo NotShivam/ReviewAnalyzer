@@ -74,9 +74,9 @@ const Dashboard = () => {
                 <div className="small mb-1">Analysis on your finger tip</div>
                 <h1 className="display-5 text-xl md:text-3xl font-bold mb-3">Your Trusted Guide for Shopping</h1>
 
-                <p className="font-light text-lg md:text-xl">FraudFender works by using artificial intelligence to analyze reviews, product info, seller info, and other aggregate data to identify and report on fake and unreliable eCommerce activity.
+                <p className="font-light text-lg md:text-xl">ReviewRadar works by using artificial intelligence to analyze reviews, product info, seller info, and other aggregate data to identify and report on fake and unreliable eCommerce activity.
                   <br />
-                  The results of our analysis are provided to you as FraudFender Review Grades and Adjusted Ratings, Guard Seller Ratings, and Review Highlights.</p>
+                  The results of our analysis are provided to you as ReviewRadar Review Grades and Adjusted Ratings, Guard Seller Ratings, and Review Highlights.</p>
                 <div className="d-flex mt-4">
                   <button className="btn border border-gray-800 shadow-md hover:shadow-lg p-3 rounded-md" type="button">
                     <i className="bi-cart-fill me-1 text-blue-600"></i>

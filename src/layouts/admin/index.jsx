@@ -87,8 +87,8 @@ export default function Admin(props) {
             <div className="h-full">
               <Navbar
                 onOpenSidenav={() => setOpen(true)}
-                logoText={"Fraudfender"}
-                brandText={(dataApi.prodName === undefined) ? "Welcome to FraudFender" : dataApi.prodName}
+                logoText={"ReviewRadar"}
+                brandText={(dataApi.prodName === undefined) ? "Welcome to ReviewRadar" : dataApi.prodName}
                 // brandText="temorary "
                 secondary={""}
                 {...rest}
