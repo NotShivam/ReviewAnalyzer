@@ -12,20 +12,22 @@ import { apiData } from "variables/sampleData";
 import { useContext } from "react";
 import { Context } from "layouts/admin";
 import axios from "axios";
-const apiUrl = "http://localhost:5000/searchYouTube"
+const apiUrl = "http://localhost:5000/searchReddit"
 // const apiUrl = "http://localhost:8080/api"
 
-const YoutubeSummary = (props) => {
+const RedditSummary = (props) => {
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
   const [query, setQuery] = React.useState("");
   const [ngram, setngram] = React.useState(null);
 
-  const { value, value2, value3, value4 } = useContext(Context);
+  const { value, value2, value3, value4, value5, value6 } = useContext(Context);
   const [dataApi, setApiData] = value;
   const [apiLoading, setApiLoading] = value2;
   const [flaskApi, setFlaskApi] = value3;
   const [flaskApiLoading, setFlaskApiLoading] = value4;
+  const [flaskApiR, setFlaskApiR] = value5;
+  const [flaskApiLoadingR, setFlaskApiLoadingR] = value6;
 
   const customConfig = {
     headers: {
@@ -34,12 +36,12 @@ const YoutubeSummary = (props) => {
   };
 
   const fetchApi = async (query) => {
-    setFlaskApiLoading(true);
+    setFlaskApiLoadingR(true);
     axios.post(apiUrl, query, customConfig)
       .then((res) => {
         console.log(res.data);
-        setFlaskApi(res.data)
-        setFlaskApiLoading(false)
+        setFlaskApiR(res.data)
+        setFlaskApiLoadingR(false)
       })
   };
 
@@ -50,7 +52,7 @@ const YoutubeSummary = (props) => {
     }
   }
 
-  if (flaskApiLoading) {
+  if (flaskApiLoadingR) {
     return (<div className="flex justify-center items-center mt-20 pt-20">
       <Bars
         height="100"
@@ -69,14 +71,14 @@ const YoutubeSummary = (props) => {
         <p className="text-xl mt-1" >Analyze a product for its youtube discussion.</p>
         <button onClick={handleSearch} className="py-2 px-3 font-bold rounded-md bg-white shadow-md hover:shadow-lg text-lg">Extract Comments</button>
       </div>
-      {flaskApi ?
+      {flaskApiR ?
         <div className="grid gird-cols-1 mt-5 gap-4">
 
           <blockquote className="text-xl italic font-semibold text-green-800 dark:text-white">
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            {flaskApi.pos_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
+            {flaskApiR.pos_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
               <p>"{item.charAt(0).toUpperCase() + item.slice(1)}"</p>
             ))}
           </blockquote>
@@ -85,7 +87,7 @@ const YoutubeSummary = (props) => {
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            {flaskApi.neu_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
+            {flaskApiR.neu_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
               <p>"{item.charAt(0).toUpperCase() + item.slice(1)}"</p>
             ))}
           </blockquote>
@@ -94,7 +96,7 @@ const YoutubeSummary = (props) => {
             <svg className="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fillRule="currentColor" viewBox="0 0 18 14">
               <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
             </svg>
-            {flaskApi.neg_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
+            {flaskApiR.neg_summ.split(".").filter((item) => (item.split(" ").length >= 3)).map((item) => (
               <p>"{item.charAt(0).toUpperCase() + item.slice(1)}"</p>
             ))}
           </blockquote>
@@ -133,4 +135,4 @@ const YoutubeSummary = (props) => {
   }
 };
 
-export default YoutubeSummary
+export default RedditSummary

@@ -21,6 +21,9 @@ import Documentation from "views/admin/promotion/Documentation";
 
 import OtherSMA from "views/admin/promotion/OtherSMA";
 import YoutubeSummary from "views/admin/promotion/YoutubeSummary";
+import RedditNgram from "views/admin/promotion/RedditNgram";
+import RedditSummary from "views/admin/promotion/RedditSummary";
+
 import { FiYoutube } from "react-icons/fi";
 import { FaRedditAlien } from "react-icons/fa";
 import { IoLogoReddit } from "react-icons/io";
@@ -83,14 +86,14 @@ const routes = [
     layout: "/admin",
     path: "reddit-ngram",
     icon: <FaRedditAlien className="h-6 w-6" />,
-    component: <OtherSMA />,
+    component: <RedditNgram />,
   },
   {
     name: "Reddit Retreval",
     layout: "/admin",
     path: "reddit-summary",
     icon: <IoLogoReddit className="h-6 w-6" />,
-    component: <YoutubeSummary />,
+    component: <RedditSummary />,
   },
   // {
   //   name: "Deploy Coupon",

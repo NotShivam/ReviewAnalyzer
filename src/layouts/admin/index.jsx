@@ -18,9 +18,11 @@ export default function Admin(props) {
   const [currentRoute, setCurrentRoute] = useState("Main Dashboard");
   
   const [dataApi, setApiData] = useState({});
-  const [flaskApi, setFlaskApi] = useState(null);
   const [apiLoading, setApiLoading] = useState(false);
+  const [flaskApi, setFlaskApi] = useState(null);
   const [flaskApiLoading, setFlaskApiLoading] = useState(false);
+  const [flaskApiR, setFlaskApiR] = useState(null);
+  const [flaskApiLoadingR, setFlaskApiLoadingR] = useState(false);
 
   React.useEffect(() => {
     window.addEventListener("resize", () =>
@@ -73,7 +75,10 @@ export default function Admin(props) {
       value: [dataApi, setApiData], 
       value2:[apiLoading, setApiLoading], 
       value4:[flaskApiLoading, setFlaskApiLoading], 
-      value3: [flaskApi, setFlaskApi]}}>
+      value3: [flaskApi, setFlaskApi],
+      value5:[flaskApiLoadingR, setFlaskApiLoadingR], 
+      value6: [flaskApiR, setFlaskApiR],
+      }}>
       
       <div className="flex h-full w-full">
         <Sidebar open={open} onClose={() => setOpen(false)} />

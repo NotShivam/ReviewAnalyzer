@@ -128,7 +128,8 @@ const Dashboard = () => {
           <Widget
             icon={<MdBarChart className="h-7 w-7" />}
             title={"Pricing"}
-            subtitle={dataApi.amazon.price}
+            // subtitle={dataApi.amazon.price}
+            subtitle={"10000"}
           />
           <Widget
             icon={<MdDashboard className="h-6 w-6" />}
