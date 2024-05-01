@@ -29,7 +29,7 @@ const Sidebar = ({ open, onClose }) => {
           style={{ height: 50, display: "inline" }}
           alt="website logo"
         />
-          Fraud <span class="font-medium">Fender</span>
+          Review <span class="font-medium">Radar</span>
         </div>
       </div>
       <div class="mt-[58px] mb-7 h-px bg-gray-300 dark:bg-white/30" />

@@ -18,6 +18,7 @@ import Register from "views/admin/promotion/Register";
 import Newsletter from "views/admin/promotion/Newsletter";
 import CompanyDetails from "views/admin/promotion/CompanyDetails";
 import Documentation from "views/admin/promotion/Documentation";
+import Segrigation from "views/admin/promotion/Segrigation";
 
 import OtherSMA from "views/admin/promotion/OtherSMA";
 import YoutubeSummary from "views/admin/promotion/YoutubeSummary";
@@ -27,6 +28,9 @@ import RedditSummary from "views/admin/promotion/RedditSummary";
 import { FiYoutube } from "react-icons/fi";
 import { FaRedditAlien } from "react-icons/fa";
 import { IoLogoReddit } from "react-icons/io";
+import { RiDiscountPercentLine } from "react-icons/ri";
+import { IoIosPricetags } from "react-icons/io";
+import { FaMobileAlt } from "react-icons/fa";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -103,11 +107,11 @@ const routes = [
   //   component: <DeployCoupon />,
   // },
   {
-    name: "User Specific Coupon",
+    name: "ABSA",
     layout: "/admin",
-    path: "userSpecific",
-    icon: <MdSupervisedUserCircle className="h-6 w-6" />,
-    component: <CustomerSpecific />,
+    path: "aspect-based-sentiment-analysis",
+    icon: <FaMobileAlt className="h-6 w-6" />,
+    component: <Segrigation />,
   },
   {
     name: "Newsletter",

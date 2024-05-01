@@ -153,7 +153,7 @@ const Navbar = (props) => {
           }
           children={
             <div className="flex w-[350px] flex-col gap-2 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
-              {/* <div
+              <div
                 style={{
                   backgroundImage: `url(${dataApi && Object.keys(dataApi).length !== 0 ? dataApi.img : "https://www.svgrepo.com/show/332205/amazon-square.svg"})`,
                   backgroundRepeat: "no-repeat",
@@ -174,7 +174,7 @@ const Navbar = (props) => {
                 className="px-full linear flex cursor-pointer items-center justify-center rounded-xl border py-[11px] font-bold text-navy-700 transition duration-200 hover:bg-gray-200 hover:text-navy-700 dark:!border-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:active:bg-white/10"
               >
                 See Image
-              </a> */}
+              </a>
             </div>
           }
           classNames={"py-2 top-6 -left-[250px] md:-left-[330px] w-max"}
