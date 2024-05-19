@@ -47,9 +47,9 @@ const RedditSummary = (props) => {
 
   const handleSearch = () => {
     if (dataApi) {
-      // fetchApi(JSON.stringify({ input_string: dataApi.prodName.split(' ').slice(0,3).join(' ') }));
+      fetchApi(JSON.stringify({ input_string: dataApi.prodName.split(' ').slice(0,3).join(' ') }));
+      // fetchApi(JSON.stringify({ input_string: "samsung s21" }));
     }
-    fetchApi(JSON.stringify({ input_string: "samsung s21" }));
   }
 
   if (flaskApiLoadingR) {
